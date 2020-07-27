@@ -16,7 +16,7 @@ const serializeAuth = ({email, password}) => {
       username: email,
       password,
     })
-}
+};
 
 
 const toCamelCase = d => deepMapKeys(d, k => camelCase(k));

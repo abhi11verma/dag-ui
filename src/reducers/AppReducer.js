@@ -1,27 +1,39 @@
+const PREFIX = "[ APP REDUCER ]";
 const actions = {
-  GOOGLE_LOGIN_REQUEST: "[auth] GOOGLE_LOGIN_REQUEST",
-  GOOGLE_LOGIN_SUCCESS: "[auth] GOOGLE_LOGIN_SUCCESS",
+  STORE_PATH: `${PREFIX} STORE_PATH`,
+  GET_GRAPH: `${PREFIX} GET_GRAPH`,
+  STORE_GRAPH: `${PREFIX} STORE_GRAPH`,
+  SET_START_NODE: `${PREFIX} SET_START_NODE`,
 };
 
 export default (
   state = {
-    elements:[]
+    graph: [],
+    paths: {},
+    startNode: ""
   },
   action
 ) => {
   switch (action.type) {
-    case actions.RESET_ERROR_MESSAGE:
+    case actions.GET_PATHS:
       return {
         ...state,
-        loginErrorMessage: null,
-        loginError: false
+        paths: {}
       };
-    case actions.GOOGLE_LOGIN_REQUEST:
+    case actions.STORE_GRAPH:
       return {
         ...state,
-        provider: loginType.GOOGLE,
-        isLoggingIn: true,
-        loginError: false
+        graph: action.payload
+      };
+    case actions.STORE_PATH:
+      return {
+        ...state,
+        paths: action.payload
+      };
+    case actions.SET_START_NODE:
+      return {
+        ...state,
+        startNode: action.payload
       };
     default:
       return state;

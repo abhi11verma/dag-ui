@@ -1,19 +1,27 @@
-import React from 'react';
+import GraphInput from "Components/GraphInput";
+import GraphPaths from "Components/GraphPaths";
+import Graph from "Components/Graphs";
+import React, {useEffect} from 'react';
 import './App.css';
-import GraphInput from "./Components/GraphInput";
-import Graph from "./Components/Graphs";
 
-function App({}) {
+function App({graph,getGraph,startNode,paths,setStartNode,getPath}) {
+
+  useEffect(() => {
+    getGraph();
+  }, []);
+
   return (
     <div className="App">
       <div id="graphDataWrapper">
         <div id="graphData">
-          <GraphInput/>
+          <GraphInput value={graph} startNode={startNode} setStartNode={setStartNode} getPath={getPath}/>
         </div>
-        <div id="paths"></div>
+        <div id="paths">
+          <GraphPaths paths={paths} />
+        </div>
       </div>
       <div id="graph">
-        <Graph/>
+        <Graph graph={graph}/>
       </div>
     </div>
   );
