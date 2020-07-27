@@ -12,7 +12,6 @@ const getGraph = () => async dispatch => {
 };
 const getPath = (startNode) => async dispatch => {
   try {
-    console.log("here");
     const paths = await dispatch(apiAction(fetchPaths,{startNode}));
     dispatch(dataAction(actions.STORE_PATH,paths));
   } catch (e) {

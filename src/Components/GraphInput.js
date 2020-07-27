@@ -11,7 +11,7 @@ function GraphInput({value, startNode, setStartNode, getPath}) {
     <div style={{display: 'flex', flexDirection: 'column', flex: 1, height: '100%'}}>
       <label>Enter graph : </label>
       <textarea
-        style={{width: '100%', height: '100%'}}
+        style={{width: '100%', height: '100%',fontSize:16}}
         value={JSON.stringify(value)}
       />
       <div>

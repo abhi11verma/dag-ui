@@ -10,7 +10,7 @@ export default (
   state = {
     graph: [],
     paths: {},
-    startNode: ""
+    startNode: "1"
   },
   action
 ) => {

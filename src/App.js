@@ -21,7 +21,7 @@ function App({graph,getGraph,startNode,paths,setStartNode,getPath}) {
         </div>
       </div>
       <div id="graph">
-        <Graph graph={graph}/>
+        <Graph graphData={paths}/>
       </div>
     </div>
   );
