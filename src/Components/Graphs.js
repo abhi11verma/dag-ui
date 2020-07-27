@@ -5,7 +5,6 @@ import CytoscapeComponent from 'react-cytoscapejs';
 
 Cytoscape.use(dagre);
 
-
 function Graph() {
 
   const elements = [

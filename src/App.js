@@ -3,7 +3,7 @@ import './App.css';
 import GraphInput from "./Components/GraphInput";
 import Graph from "./Components/Graphs";
 
-function App() {
+function App({}) {
   return (
     <div className="App">
       <div id="graphDataWrapper">
