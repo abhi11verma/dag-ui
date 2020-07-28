@@ -18,8 +18,8 @@ export const postGraph = (graphData) => request({
   }
 });
 
-export const postNode = (parent,value) => request({
-  url: `api/create`,
+export const postNode = ({parent,value}) => request({
+  url: `api/addnode`,
   method: 'POST',
   data:{
     parent:parent,

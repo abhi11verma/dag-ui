@@ -2,7 +2,7 @@ import {isEmpty} from 'lodash';
 import React, {useState} from 'react';
 
 
-function GraphInput({value, startNode, setStartNode, getPath, editGraph, serverGraphData, createGraph}) {
+function GraphInput({value, startNode, setStartNode, getPath, editGraph, serverGraphData, createGraph, getGraph}) {
 
   const [jsonError, setJsonError] = useState("");
   const [parsedJson, setParsedJson] = useState([]);
@@ -98,7 +98,9 @@ function GraphInput({value, startNode, setStartNode, getPath, editGraph, serverG
           color: "#ffffff",
           fontWeight: 'bold',
           flex: 1
-        }}>GET GRAPH
+        }}
+             onClick={getGraph}
+        >GET GRAPH
         </div>
       </div>
     </div>

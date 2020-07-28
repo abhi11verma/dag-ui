@@ -1,5 +1,5 @@
 import {apiAction, dataAction} from "actions/actionWrappers";
-import {fetchGraph, fetchPaths, postGraph} from "api/appAPI";
+import {fetchGraph, fetchPaths, postGraph, postNode} from "api/appAPI";
 import {actions} from "reducers/AppReducer";
 
 const getGraph = () => async dispatch => {
@@ -22,7 +22,7 @@ const getPath = (startNode) => async dispatch => {
 const createGraph = (graph) => async dispatch => {
   try {
     await dispatch(apiAction(postGraph, graph));
-    await dispatch(getGraph());
+    dispatch(getGraph());
   } catch (e) {
     console.log("Error Creating graph", e);
   }
@@ -37,7 +37,17 @@ const editGraph = (graph) => dispatch => {
 };
 
 
+const addNode = (parent, value) => async dispatch => {
+  try {
+    await dispatch(apiAction(postNode, {parent, value}));
+    await dispatch(getGraph());
+  } catch (e) {
+    console.log("Error Creating Node");
+  }
+};
+
+
 //Todo :Proper error handeling and edge cases
 
 
-export {getGraph,setStartNode,getPath,editGraph,createGraph};
+export {getGraph, setStartNode, getPath, editGraph, createGraph, addNode};
