@@ -1,5 +1,5 @@
 import {modes} from "common/helpers";
-import {isEmpty, toNumber,split} from 'lodash';
+import {isEmpty, split, toNumber} from 'lodash';
 import React, {useState} from 'react';
 
 
@@ -34,10 +34,12 @@ function GraphPaths({paths, graphMode, setGraphMode, addNode}) {
         <button onClick={handleAddNode}>ADD NODE</button>
       </div>
 
-      <div style={{display: 'flex', flexDirection: 'row',marginTop:'auto'}}>
+      <div style={{display: 'flex', flexDirection: 'column', marginTop: 'auto'}}>
+        <p>SELECT GRAPH TO DRAW FOR</p>
+        <div style={{display: 'flex', flexDirection: 'row'}}>
         <div style={{
           flex: 1,
-          backgroundColor: graphMode === modes.GRAPH ? '#2196F3' : '#607D8B',
+          backgroundColor: graphMode === modes.GRAPH ? '#2196F3' : '#767f8d',
           height: 40,
           display: 'flex',
           justifyContent: 'center',
@@ -49,7 +51,7 @@ function GraphPaths({paths, graphMode, setGraphMode, addNode}) {
         </div>
         <div style={{
           flex: 1,
-          backgroundColor: graphMode === modes.PATH ? '#2196F3' : '#607D8B',
+          backgroundColor: graphMode === modes.PATH ? '#2196F3' : '#767f8d',
           height: 40,
           display: 'flex',
           justifyContent: 'center',
@@ -58,6 +60,7 @@ function GraphPaths({paths, graphMode, setGraphMode, addNode}) {
         }}
              onClick={() => setGraphMode(modes.PATH)}
         >PATH
+        </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import {apiAction, dataAction} from "actions/actionWrappers";
 import {fetchGraph, fetchPaths, postGraph, postNode} from "api/appAPI";
 import {actions} from "reducers/AppReducer";
+import {toNumber,map} from 'lodash';
 
 const getGraph = () => async dispatch => {
   try {
@@ -38,8 +39,9 @@ const editGraph = (graph) => dispatch => {
 
 
 const addNode = (parent, value) => async dispatch => {
+  let numericValueArray = map(value,val=>toNumber(val));
   try {
-    await dispatch(apiAction(postNode, {parent, value}));
+    await dispatch(apiAction(postNode, {parent, numericValueArray}));
     await dispatch(getGraph());
   } catch (e) {
     console.log("Error Creating Node");

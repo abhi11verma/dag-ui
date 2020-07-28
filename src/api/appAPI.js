@@ -18,11 +18,11 @@ export const postGraph = (graphData) => request({
   }
 });
 
-export const postNode = ({parent,value}) => request({
+export const postNode = ({parent, numericValueArray}) => request({
   url: `api/addnode`,
   method: 'POST',
   data:{
     parent:parent,
-    value:value,
+    value: numericValueArray,
   }
 });
