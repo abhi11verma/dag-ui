@@ -2,7 +2,7 @@ import {isEmpty} from 'lodash';
 import React, {useState} from 'react';
 
 
-function GraphInput({value, startNode, setStartNode, getPath, editGraph, serverGraphData}) {
+function GraphInput({value, startNode, setStartNode, getPath, editGraph, serverGraphData, createGraph}) {
 
   const [jsonError, setJsonError] = useState("");
   const [parsedJson, setParsedJson] = useState([]);
@@ -26,6 +26,10 @@ function GraphInput({value, startNode, setStartNode, getPath, editGraph, serverG
     } catch (e) {
       setJsonError("Error in format", e);
     }
+  };
+
+  const submitGraph = () => {
+    !isEmpty(parsedJson) && createGraph(parsedJson);
   };
 
   return (
@@ -58,6 +62,7 @@ function GraphInput({value, startNode, setStartNode, getPath, editGraph, serverG
           fontWeight: 'bold',
           marginTop:'auto'
         }}
+        onClick={submitGraph}
       >POST GRAPH
       </button>
       GRAPH DATA ON SERVER :

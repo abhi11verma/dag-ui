@@ -2,15 +2,18 @@ import {assign, flattenDeep, forEach, isEmpty, join, map, union} from 'lodash';
 
 function graphFormator(graph) {
 
-  if (typeof graph !=='object') {
+  if (typeof graph !=='object' || graph.length<1) {
     return [];
   }
 
   const nodes = [];
   const nodesData = [];
   //create all nodes
-  forEach(graph, (element, key) => nodes.push(...element, key));
-
+  try {
+    forEach(graph, (element, key) => nodes.push(...element, key));
+  }catch (e) {
+    return [];
+  }
   const uniqueNodes = union(nodes);
   forEach(uniqueNodes, (node) => {
     nodesData.push(nodeFormat(node));

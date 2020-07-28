@@ -21,7 +21,8 @@ const getPath = (startNode) => async dispatch => {
 
 const createGraph = (graph) => async dispatch => {
   try {
-    await dispatch(apiAction(postGraph, {graph}));
+    await dispatch(apiAction(postGraph, graph));
+    await dispatch(getGraph());
   } catch (e) {
     console.log("Error Creating graph", e);
   }

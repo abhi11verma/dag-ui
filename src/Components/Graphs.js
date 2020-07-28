@@ -7,8 +7,6 @@ import CytoscapeComponent from 'react-cytoscapejs';
 Cytoscape.use(dagre);
 
 function Graph({graphData}) {
-  console.log("GraphPoints",graphData);
-
   return (
     isEmpty(graphData) ? <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>GRAPH DATA NOT
                          AVAILABLE</div> :
