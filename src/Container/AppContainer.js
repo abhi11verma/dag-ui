@@ -2,12 +2,12 @@ import {createGraph, editGraph, getGraph, getPath, setStartNode} from "actions/A
 import {connect} from 'react-redux';
 import App from '../App';
 
-const mapStateToProps = ({app: {graph, startNode, paths,graphFormatText}}) => (
+const mapStateToProps = ({app: {graph, startNode, paths,serverGraphData}}) => (
   {
     graph,
     startNode,
     paths,
-    graphFormatText
+    serverGraphData
   }
 );
 

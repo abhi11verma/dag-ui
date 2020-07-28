@@ -10,7 +10,7 @@ const actions = {
 export default (
   state = {
     graph: [],
-    graphFormatText : [],
+    serverGraphData : [],
     paths: {},
     startNode: "1"
   },
@@ -20,7 +20,8 @@ export default (
     case actions.STORE_GRAPH:
       return {
         ...state,
-        graph: action.payload
+        serverGraphData: action.payload,
+        graph:action.payload
       };
     case actions.STORE_PATH:
       return {

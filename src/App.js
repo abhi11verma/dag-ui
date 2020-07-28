@@ -7,7 +7,7 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 
 
-function App({graph, getGraph, startNode, paths, setStartNode, getPath, createGraph, editGraph,graphFormatText}) {
+function App({graph, getGraph, startNode, paths, setStartNode, getPath, createGraph, editGraph,serverGraphData}) {
 
   useEffect(() => {
     getGraph();
@@ -22,7 +22,7 @@ function App({graph, getGraph, startNode, paths, setStartNode, getPath, createGr
       <div id="graphDataWrapper">
         <div id="graphData">
           <GraphInput value={graph} startNode={startNode} setStartNode={setStartNode} getPath={getPath}
-                      graphFormatText={graphFormatText}
+                      serverGraphData={serverGraphData}
                       createGraph={createGraph} editGraph={editGraph}/>
         </div>
         <div id="paths">

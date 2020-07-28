@@ -2,10 +2,10 @@ import {isEmpty} from 'lodash';
 import React, {useState} from 'react';
 
 
-function GraphInput({value, startNode, setStartNode, getPath, editGraph, graphFormatText}) {
+function GraphInput({value, startNode, setStartNode, getPath, editGraph, serverGraphData}) {
 
   const [jsonError, setJsonError] = useState("");
-  const [parsedJson, setparsedJson] = useState([]);
+  const [parsedJson, setParsedJson] = useState([]);
   const [textValue, setTextValue] = useState([]);
 
   const handleClick = () => {
@@ -20,7 +20,7 @@ function GraphInput({value, startNode, setStartNode, getPath, editGraph, graphFo
   const parseJSON = (value) => {
     try {
       let parsedValue = JSON.parse(value);
-      setparsedJson(parsedValue);
+      setParsedJson(parsedValue);
       editGraph(parsedValue);
       setJsonError("");
     } catch (e) {
@@ -60,10 +60,11 @@ function GraphInput({value, startNode, setStartNode, getPath, editGraph, graphFo
         }}
       >POST GRAPH
       </button>
+      GRAPH DATA ON SERVER :
       <textarea
         style={{width: '100%', fontSize: 16}}
         disabled={true}
-        value={JSON.stringify(value)}
+        value={JSON.stringify(serverGraphData)}
       />
       <div>
         <label>Specify Start Node </label>
