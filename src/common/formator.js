@@ -1,6 +1,11 @@
-import {assign, flattenDeep, forEach, join, map, union} from 'lodash';
+import {assign, flattenDeep, forEach, isEmpty, join, map, union} from 'lodash';
 
 function graphFormator(graph) {
+
+  if (typeof graph !=='object') {
+    return [];
+  }
+
   const nodes = [];
   const nodesData = [];
   //create all nodes

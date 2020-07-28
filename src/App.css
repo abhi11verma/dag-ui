@@ -13,12 +13,13 @@
 }
 
 #graphData{
-  flex: 1;
   border-bottom: 1px solid grey;
+  flex: 1;
 }
 
 #paths{
-  flex: 1;
+  margin-top: auto;
+  height: 300px;
 }
 
 #graph {

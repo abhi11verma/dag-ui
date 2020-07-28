@@ -4,22 +4,19 @@ const actions = {
   GET_GRAPH: `${PREFIX} GET_GRAPH`,
   STORE_GRAPH: `${PREFIX} STORE_GRAPH`,
   SET_START_NODE: `${PREFIX} SET_START_NODE`,
+  EDIT_GRAPH: `${PREFIX} EDIT_GRAPH`,
 };
 
 export default (
   state = {
     graph: [],
+    graphFormatText : [],
     paths: {},
     startNode: "1"
   },
   action
 ) => {
   switch (action.type) {
-    case actions.GET_PATHS:
-      return {
-        ...state,
-        paths: {}
-      };
     case actions.STORE_GRAPH:
       return {
         ...state,
@@ -34,6 +31,11 @@ export default (
       return {
         ...state,
         startNode: action.payload
+      };
+    case actions.EDIT_GRAPH:
+      return {
+        ...state,
+        graph: action.payload
       };
     default:
       return state;

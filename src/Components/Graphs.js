@@ -1,23 +1,21 @@
-import {graphFormator,pathFormator} from "common/formator";
 import Cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
+import {isEmpty} from 'lodash';
 import React from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
-import {isEmpty} from 'lodash'
 
 Cytoscape.use(dagre);
 
 function Graph({graphData}) {
-
-  const elements = pathFormator(graphData);
+  console.log("GraphPoints",graphData);
 
   return (
-    isEmpty(elements)?<div>Graph</div>:
+    isEmpty(graphData) ? <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>GRAPH DATA NOT
+                         AVAILABLE</div> :
     <CytoscapeComponent
-      elements={elements}
+      elements={graphData}
       style={{width: '100%', height: '100%', background: '#673ab7', display: 'flex'}}
       layout={{name: 'dagre'}}
-      userZoomingEnabled={false}
       stylesheet={[
         {
           selector: 'node',
